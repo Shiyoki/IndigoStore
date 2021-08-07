@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock style %}
+{% block content %}
+
+<div class="container bg-dark text-light col-md-6">
+    {% from "_formhelpers.html" import render_field %}
+         <div class="row mt-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">      
+    <div class="text-center h1 text-white p-2">Login</div>
+    {% from "_formhelpers.html" import render_field %}
+    {% include '_messages.html' %}
+<form method="post">
+    {{form.csrf_token}}
+  <div>
+    {{ render_field(form.email ,class="form-control") }}
+    {{ render_field(form.password ,class="form-control") }}
+
+  </div>
+  <div class="text-center col-md-12">
+  <p><input type="submit" value="Login" class="btn btn-danger "></p>
+  </div>
+</form>
+    </div>
+        <div class="col-md-4"></div>
+</div>
+</div>
+
+{% endblock content %}
+
